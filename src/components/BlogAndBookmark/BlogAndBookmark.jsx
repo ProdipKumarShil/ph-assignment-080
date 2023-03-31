@@ -4,7 +4,7 @@ import Bookmark from '../Bookmark/Bookmark';
 
 const BlogAndBookmark = () => {
     return (
-        <div>
+        <div className='grid grid-cols-6'>
             <Blog></Blog>
             <Bookmark></Bookmark>
         </div>
