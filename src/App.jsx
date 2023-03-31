@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [cards, setCards] = useState([])
+  
   useEffect( () => {
     fetch('data.json')
       .then(res=> res.json())

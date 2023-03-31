@@ -1,8 +1,13 @@
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark as faRegularBookmark } from '@fortawesome/free-regular-svg-icons'
+
 import React from 'react';
 
 const BlogCard = ({card}) => {
   const {img, title, readTime, user} = card
-  console.log(card)
+  console.log(user.date)
+  console.log(readTime)
   return (
     <>
       <div className="card card-compact w-[auto] bg-base-100 m-2 rounded-md shadow mt-10">
@@ -17,11 +22,11 @@ const BlogCard = ({card}) => {
               </div>
             </div>
             <div className="">
-              <p className='text-slate-400 text-xl font-medium'>{user.date} min to read</p>
+              <p className='text-slate-400 text-xl font-medium'>{readTime} min to read <FontAwesomeIcon icon={faBookmark} /> <FontAwesomeIcon icon={faRegularBookmark} /></p>
             </div>
           </div>
           <h2 className="card-title text-4xl my-4 mb-4">{title}</h2>
-          <a href="#" className='underline text-xl'>Mark as read</a>
+          <p href="#" className='underline text-xl cursor-pointer'>Mark as read </p>
         </div>
       </div>
     </>

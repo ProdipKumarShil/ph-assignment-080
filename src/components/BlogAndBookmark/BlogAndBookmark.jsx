@@ -5,7 +5,7 @@ import Bookmark from '../Bookmark/Bookmark';
 const BlogAndBookmark = ({cards}) => {
     console.log(cards)
     return (
-        <div className='grid grid-cols-6'>
+        <div className='grid grid-cols-1 md:grid-cols-6'>
             <Blog cards={cards}></Blog>
             <Bookmark></Bookmark>
         </div>
