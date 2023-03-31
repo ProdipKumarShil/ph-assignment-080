@@ -4,8 +4,17 @@ import BlogAndBookmark from './components/BlogAndBookmark/BlogAndBookmark'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const [cards, setCards] = useState([])
+  const [bookmarkItem, setBookmarkItem] = useState([])
+  const addBookmarkInSection = (id) => {
+    console.log(id)
+  }
   
+  const [minute, setMinute] = useState(0)
+  const increaseReadingTime = (time) => {
+    setMinute(minute + time)
+  }
+  
+  const [cards, setCards] = useState([])
   useEffect( () => {
     fetch('data.json')
       .then(res=> res.json())
@@ -14,7 +23,7 @@ function App() {
   return (
     <div className="App max-w-screen-xl mx-auto">
       <Header></Header>
-      <BlogAndBookmark cards={cards}></BlogAndBookmark>
+      <BlogAndBookmark addBookmark={addBookmarkInSection} cards={cards} totalReadTime={minute} func={increaseReadingTime}></BlogAndBookmark>
     </div>
   )
 }

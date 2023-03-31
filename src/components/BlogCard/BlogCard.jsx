@@ -4,10 +4,8 @@ import { faBookmark as faRegularBookmark } from '@fortawesome/free-regular-svg-i
 
 import React from 'react';
 
-const BlogCard = ({card}) => {
+const BlogCard = ({card, func}) => {
   const {img, title, readTime, user} = card
-  console.log(user.date)
-  console.log(readTime)
   return (
     <>
       <div className="card card-compact w-[auto] bg-base-100 m-2 rounded-md shadow mt-10">
@@ -26,7 +24,7 @@ const BlogCard = ({card}) => {
             </div>
           </div>
           <h2 className="card-title text-4xl my-4 mb-4">{title}</h2>
-          <p href="#" className='underline text-xl cursor-pointer'>Mark as read </p>
+          <p href="#" onClick={() => func(parseInt(readTime))} className='underline text-xl cursor-pointer'>Mark as read </p>
         </div>
       </div>
     </>
