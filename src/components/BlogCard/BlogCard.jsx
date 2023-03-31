@@ -2,10 +2,16 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark as faRegularBookmark } from '@fortawesome/free-regular-svg-icons'
 
-import React from 'react';
+import React, { useState } from 'react';
 
-const BlogCard = ({card, func}) => {
-  const {img, title, readTime, user} = card
+const BlogCard = ({card, func, addBookmark}) => {
+  const {id, img, title, readTime, user} = card
+
+  const [icon, setIcon] = useState(false)
+  const changeIcon = () => {
+    setIcon(!icon)
+  }
+
   return (
     <>
       <div className="card card-compact w-[auto] bg-base-100 m-2 rounded-md shadow mt-10">
@@ -20,7 +26,7 @@ const BlogCard = ({card, func}) => {
               </div>
             </div>
             <div className="">
-              <p className='text-slate-400 text-xl font-medium'>{readTime} min to read <FontAwesomeIcon icon={faBookmark} /> <FontAwesomeIcon icon={faRegularBookmark} /></p>
+              <p className='text-slate-400 text-xl font-medium'>{readTime} min to read <FontAwesomeIcon onClick={() => changeIcon()} className='cursor-pointer' icon={icon ? faBookmark : faRegularBookmark} /></p>
             </div>
           </div>
           <h2 className="card-title text-4xl my-4 mb-4">{title}</h2>
