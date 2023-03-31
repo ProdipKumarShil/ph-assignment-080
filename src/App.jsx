@@ -5,7 +5,7 @@ import BlogAndBookmark from './components/BlogAndBookmark/BlogAndBookmark'
 function App() {
 
   return (
-    <div className="App max-w-screen-lg mx-auto">
+    <div className="App max-w-screen-xl mx-auto">
       <Header></Header>
       <BlogAndBookmark></BlogAndBookmark>
     </div>
