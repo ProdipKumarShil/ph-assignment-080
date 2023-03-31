@@ -8,14 +8,6 @@ function App() {
   const addBookmarkInSection = (id) => {
     console.log(id)
   }
-
-  const [iconState, setIconState] = useState(false)
-  const changeIcon = () => {
-    setIconState(!iconState)
-    console.log(iconState)
-  }
-
-  
   
   const [minute, setMinute] = useState(0)
   const increaseReadingTime = (time) => {
@@ -27,11 +19,11 @@ function App() {
     fetch('data.json')
       .then(res=> res.json())
       .then(data => setCards(data))
-  },[iconState])
+  },[])
   return (
     <div className="App max-w-screen-xl mx-auto">
       <Header></Header>
-      <BlogAndBookmark icon={iconState} changeIcon={changeIcon} addBookmark={addBookmarkInSection} cards={cards} totalReadTime={minute} func={increaseReadingTime}></BlogAndBookmark>
+      <BlogAndBookmark addBookmark={addBookmarkInSection} cards={cards} totalReadTime={minute} func={increaseReadingTime}></BlogAndBookmark>
     </div>
   )
 }

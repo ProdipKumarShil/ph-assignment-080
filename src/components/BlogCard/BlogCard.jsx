@@ -1,14 +1,37 @@
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark as faRegularBookmark } from '@fortawesome/free-regular-svg-icons'
-
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BlogCard = ({card, func, addBookmark}) => {
   const {id, img, title, readTime, user} = card
 
+  const notify = () => toast.success('🦄 Wow so easy!', {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });;
+  const notify2 = () => toast.error('🦄 Wow so easy!', {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });;
+
   const [icon, setIcon] = useState(false)
   const changeIcon = () => {
+    icon ? notify2() : notify();
     setIcon(!icon)
   }
 
@@ -31,6 +54,8 @@ const BlogCard = ({card, func, addBookmark}) => {
           </div>
           <h2 className="card-title text-4xl my-4 mb-4">{title}</h2>
           <p href="#" onClick={() => func(parseInt(readTime))} className='underline text-xl cursor-pointer'>Mark as read </p>
+          {/* <p href="#" onClick={notify} className='underline text-xl cursor-pointer'>Ha ha... baked your toast</p> */}
+          <ToastContainer />
         </div>
       </div>
     </>
