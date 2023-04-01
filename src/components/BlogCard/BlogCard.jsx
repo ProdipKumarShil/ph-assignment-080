@@ -50,7 +50,7 @@ const BlogCard = ({card, func, addBookmark}) => {
               </div>
             </div>
             <div className="">
-              <p className='text-slate-400 text-xl font-medium'>{readTime} min to read <FontAwesomeIcon onClick={() => changeIcon(id)} className='cursor-pointer' icon={icon ? faBookmark : faRegularBookmark} /></p>
+              <p className='text-slate-400 text-xl font-medium'>{readTime} min to read <FontAwesomeIcon onClick={() => changeIcon(id)} className='cursor-pointer animate-bounce  h-7' icon={icon ? faBookmark : faRegularBookmark} /></p>
             </div>
           </div>
           <h2 className="card-title text-4xl my-4 mb-4">{title}</h2>
