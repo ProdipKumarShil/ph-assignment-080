@@ -1,16 +1,10 @@
 import './App.css'
-// import Header from './Header/Header'
 import BlogAndBookmark from './components/BlogAndBookmark/BlogAndBookmark'
 import { useEffect, useState } from 'react'
 import Questions from './components/Questions/Questions'
 import Header from './components/Header/Header'
 
 function App() {
-
-  // create another bookmark obj
-
-  // create another bookmark obj
-
   
   const [bookmarkItem, setBookmarkItem] = useState([])
   const addBookmarkInSection = (id) => {

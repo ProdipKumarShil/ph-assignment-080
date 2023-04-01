@@ -8,30 +8,31 @@ import 'react-toastify/dist/ReactToastify.css';
 const BlogCard = ({card, func, addBookmark}) => {
   const {id, img, title, readTime, user} = card
 
-  const notify = () => toast.success('👌 bookmark added', {
-    position: "top-right",
-    autoClose: 800,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });;
-  const notify2 = () => toast.error('💩 bookmark removed', {
-    position: "top-right",
-    autoClose: 800,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });;
+  
 
   const [icon, setIcon] = useState(false)
   const changeIcon = () => {
-    icon ? notify2(id) : notify();
+    const notify = () => toast.success('👌 bookmark added', {
+      position: "top-right",
+      autoClose: 800,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+    });;
+    const notify2 = () => toast.error('💩 bookmark removed', {
+      position: "top-right",
+      autoClose: 800,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+    });;
+    icon ? notify2() : notify();
     setIcon(!icon)
     addBookmark(id)
   }
