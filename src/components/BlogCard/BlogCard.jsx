@@ -39,7 +39,7 @@ const BlogCard = ({card, func, addBookmark}) => {
   return (
     <>
       <div className="card card-compact w-[auto] bg-base-100 m-2 rounded-md shadow mt-10">
-        <figure><img className='h-[783px] object-cover w-[845px]' src={img} alt="Shoes" /></figure>
+        <figure><img className='h-[600px] object-cover w-[845px]' src={img} alt="Shoes" /></figure>
         <div className="card-body">
           <div className="flex justify-between items-center">
             <div className='flex items-center'>
@@ -54,7 +54,7 @@ const BlogCard = ({card, func, addBookmark}) => {
             </div>
           </div>
           <h2 className="card-title text-4xl my-4 mb-4">{title}</h2>
-          <p href="#" onClick={() => func(parseInt(readTime))} className='underline text-xl cursor-pointer'>Mark as read </p>
+          <p onClick={() => func(parseInt(readTime))} className='underline text-xl cursor-pointer active:text-textColor'>Mark as read </p>
           {/* <p href="#" onClick={notify} className='underline text-xl cursor-pointer'>Ha ha... baked your toast</p> */}
           <ToastContainer />
         </div>
