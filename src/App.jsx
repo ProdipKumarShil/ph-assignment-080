@@ -4,9 +4,16 @@ import BlogAndBookmark from './components/BlogAndBookmark/BlogAndBookmark'
 import { useEffect, useState } from 'react'
 
 function App() {
+
+  // create another bookmark obj
+
+  // create another bookmark obj
+
+  
   const [bookmarkItem, setBookmarkItem] = useState([])
   const addBookmarkInSection = (id) => {
-    console.log(id)
+    const newArr = [...bookmarkItem, id]
+    setBookmarkItem(newArr)
   }
   
   const [minute, setMinute] = useState(0)
@@ -23,7 +30,7 @@ function App() {
   return (
     <div className="App max-w-screen-xl mx-auto">
       <Header></Header>
-      <BlogAndBookmark addBookmark={addBookmarkInSection} cards={cards} totalReadTime={minute} func={increaseReadingTime}></BlogAndBookmark>
+      <BlogAndBookmark bookmark={bookmarkItem} addBookmark={addBookmarkInSection} cards={cards} totalReadTime={minute} func={increaseReadingTime}></BlogAndBookmark>
     </div>
   )
 }

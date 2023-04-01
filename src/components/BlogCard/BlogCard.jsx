@@ -8,9 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const BlogCard = ({card, func, addBookmark}) => {
   const {id, img, title, readTime, user} = card
 
-  const notify = () => toast.success('🦄 Wow so easy!', {
+  const notify = () => toast.success('👌 bookmark added', {
     position: "top-right",
-    autoClose: 3000,
+    autoClose: 800,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -18,9 +18,9 @@ const BlogCard = ({card, func, addBookmark}) => {
     progress: undefined,
     theme: "light",
   });;
-  const notify2 = () => toast.error('🦄 Wow so easy!', {
+  const notify2 = () => toast.error('💩 bookmark removed', {
     position: "top-right",
-    autoClose: 3000,
+    autoClose: 800,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -31,8 +31,9 @@ const BlogCard = ({card, func, addBookmark}) => {
 
   const [icon, setIcon] = useState(false)
   const changeIcon = () => {
-    icon ? notify2() : notify();
+    icon ? notify2(id) : notify();
     setIcon(!icon)
+    addBookmark(id)
   }
 
   return (
@@ -49,7 +50,7 @@ const BlogCard = ({card, func, addBookmark}) => {
               </div>
             </div>
             <div className="">
-              <p className='text-slate-400 text-xl font-medium'>{readTime} min to read <FontAwesomeIcon onClick={() => changeIcon()} className='cursor-pointer' icon={icon ? faBookmark : faRegularBookmark} /></p>
+              <p className='text-slate-400 text-xl font-medium'>{readTime} min to read <FontAwesomeIcon onClick={() => changeIcon(id)} className='cursor-pointer' icon={icon ? faBookmark : faRegularBookmark} /></p>
             </div>
           </div>
           <h2 className="card-title text-4xl my-4 mb-4">{title}</h2>
