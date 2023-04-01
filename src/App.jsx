@@ -1,7 +1,9 @@
 import './App.css'
-import Header from './Header/Header'
+// import Header from './Header/Header'
 import BlogAndBookmark from './components/BlogAndBookmark/BlogAndBookmark'
 import { useEffect, useState } from 'react'
+import Questions from './components/Questions/Questions'
+import Header from './components/Header/Header'
 
 function App() {
 
@@ -31,6 +33,7 @@ function App() {
     <div className="App max-w-screen-xl mx-auto">
       <Header></Header>
       <BlogAndBookmark bookmark={bookmarkItem} addBookmark={addBookmarkInSection} cards={cards} totalReadTime={minute} func={increaseReadingTime}></BlogAndBookmark>
+      <Questions></Questions>
     </div>
   )
 }
